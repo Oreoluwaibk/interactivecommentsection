@@ -5,9 +5,126 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background-color: hsl(228, 33%, 97%)
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+p{
+  font-size: 16px;
+  color: hsl(211, 10%, 45%);
+}
+h4{
+  color: hsl(212, 24%, 26%);
+}
+.comment-change{
+  margin-left: 2rem;
+  margin-top: 25%;
+  
+}
+
+.each{
+  background-color: hsl(228, 33%, 97%);
+  padding: 0.1rem 0.5rem;
+  color: hsl(238, 40%, 52%);
+}
+.add{
+  border-radius: 0.5rem 0.5rem 0 0;
+  cursor: pointer;
+}
+.value{
+  font-weight: bold;
+}
+.substract{
+  cursor: pointer;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+.avatar{
+  width: 40px;
+  height: 40px;
+}
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} 
+.reply-button{
+  background-color: hsl(238, 40%, 52%);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border-style: none;
+  color: #fff;
+  transition: background-color 0.75s ease-in-out;
+}
+.reply-button:hover{
+  cursor: pointer;
+  background-color: hsl(200, 57%, 85%);
+}
+.details{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.posts{
+  display: flex;
+  gap: 5%;
+  
+  background-color: #fff;
+  border-radius: 1rem;
+}
+
+.commentsection{
+  display: flex;
+  gap: 5%;
+  background-color: #fff;
+  border-radius: 1rem;
+  margin-left: 15%;
+}
+.not-active{
+  display: none;
+}
+.post-return{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form{
+  display: flex;
+  gap: 0.5rem;
+}
+.comment{
+  display: flex;
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  gap: 1rem;
+}
+.app{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2% 30%;
+}
+.body-comment{
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+.post-position{
+  display: flex;
+  flex-direction: column;
+  padding-right: 5%;
+  padding-bottom: 2%;
+}
+.reply{
+  cursor: pointer;
+  color: hsl(238, 40%, 52%);
+  transition: color 0.5s ease-in-out;
+  font-weight: bold;
+}
+.reply:hover{
+  color: hsl(200, 57%, 85%);
 }
