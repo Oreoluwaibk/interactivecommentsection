@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "./header";
 import Body from "./body";
 import CommentChange from "./commentcahnge";
-import { set } from "lodash";
+// import { set } from "lodash";
 import Comments from "./comments";
 import "../index.css"
 
@@ -10,6 +10,7 @@ import "../index.css"
 
 function Posts(props){
     let [valued, setValued] = useState(0);
+    const [toggle, setToggle ] = useState(true);
 
     function add(){
         // setValued()
@@ -29,7 +30,7 @@ function Posts(props){
 
     function hide(){
         console.log("clicked");
-        document.querySelector(".commentfor").classList.toggle("not-active");
+        setToggle(!toggle)
     }
     return <div className="post-return">
     <div className="posts">
@@ -52,9 +53,9 @@ function Posts(props){
         />
         </div>
     </div>
-    <div className = "not-active commentfor" >
-    <Comments />
-    </div>
+    
+    {toggle && <div className = "commentfor" ><Comments cols={45} butname={props.butname}/> </div>}
+    
     </div>
 }
 

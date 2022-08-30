@@ -10,9 +10,6 @@ console.log(comment1);
 console.log(currentUser);
 const replies = comment2.replies;
 function App() {
-  function click (){
-
-  }
   
   return (
     <div className='app'>
@@ -22,7 +19,8 @@ function App() {
           avatar={comment.user.image.png}
           username={comment.user.username}
           date={comment.createdAt}
-          comments={comment.content} 
+          comments={comment.content}
+          butname ="REPLY" 
         />
       })}
       {replies.map((rep) => {
@@ -32,6 +30,7 @@ function App() {
           username={rep.user.username}
           date={rep.createdAt}
           comments={rep.content}
+          butname ="POST"
         />
       })}
     </div>

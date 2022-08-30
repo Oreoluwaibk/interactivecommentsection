@@ -2,12 +2,14 @@ import React, {useState} from "react";
 import Header from "./header";
 import CommentChange from "./commentcahnge";
 import Body from "./body";
+import Comments from "./comments";
 
 
 
 function CommentSection (props){
 
     let [valued, setValued] = useState(0);
+    const [toggle, setToggle ] = useState(true);
 
     function add(){
         // setValued()
@@ -25,7 +27,13 @@ function CommentSection (props){
         });
     }
 
-    return <div className="commentsection">
+    function hide(){
+        console.log("clicked");
+        setToggle(!toggle)
+    }
+
+    return <div className="commenting">
+        <div className="commentsection">
         <div className={props.reply} > 
         <CommentChange 
         add ={add} 
@@ -35,7 +43,7 @@ function CommentSection (props){
 
         <div className="post-position">
         <Header 
-        // hide={hide} 
+        hide={hide} 
         avatar ={props.avatar}
         username={props.username}
         date={props.date}
@@ -44,6 +52,8 @@ function CommentSection (props){
         comments={props.comments}
         />
         </div>
+        </div>
+        {toggle && <div className = "commentfo" ><Comments cols={35} butname ={props.butname}/> </div>}
     </div>
 }
 

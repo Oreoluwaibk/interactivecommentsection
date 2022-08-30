@@ -1,14 +1,14 @@
 import React from "react";
 import Button from "./button";
 
-function Comments(){
+function Comments(props){
     return <div className="comment">
     <img src="/images/avatars/image-juliusomo.png" className="avatar"/>
     <form className="form">
 
-    <textarea rows={4} cols={45} placeholder=" Add a comment..." />
+    <textarea rows={4} cols={props.cols} placeholder=" Add a comment..." />
     
-    <Button />
+    <Button butname ={props.butname}/>
     </form>
     </div>
 }

@@ -1,9 +1,9 @@
 import React from "react";
 
 
-function Button (){
+function Button (props){
     return <div>
-        <button className="reply-button">REPLY</button>
+        <button className="reply-button">{props.butname}</button>
     </div>
 }
 
