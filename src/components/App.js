@@ -2,13 +2,12 @@ import Posts from './post';
 import "../index.css"
 import Data from "../data"
 import CommentSection from './commentsection';
+import PersonalComment from './personalcomment';
 
 const {comments, currentUser } = Data;
 
-const [comment1, comment2 ] = comments
-console.log(comment1);
-console.log(currentUser);
-const replies = comment2.replies;
+const [comment1, comment2 ] = comments;
+const [rep1, rep2 ] = comment2.replies;
 function App() {
   
   return (
@@ -23,16 +22,21 @@ function App() {
           butname ="REPLY" 
         />
       })}
-      {replies.map((rep) => {
-        return <CommentSection 
-          key={rep.id}
-          avatar={rep.user.image.png}
-          username={rep.user.username}
-          date={rep.createdAt}
-          comments={rep.content}
-          butname ="POST"
+      <CommentSection 
+        key={rep1.id}
+          avatar={rep1.user.image.png}
+          username={rep1.user.username}
+          date={rep1.createdAt}
+          comments={rep1.content}
+          butname ="REPLY"
+      />
+      <PersonalComment 
+          key={rep2.id}
+          avatar={rep2.user.image.png}
+          username={rep2.user.username}
+          date={rep2.createdAt}
+          comments={rep2.content}
         />
-      })}
     </div>
   );
 }

@@ -6,9 +6,12 @@ function Comments(props){
     <img src="/images/avatars/image-juliusomo.png" className="avatar"/>
     <form className="form">
 
-    <textarea rows={4} cols={props.cols} placeholder=" Add a comment..." />
+    <textarea rows={4} cols={props.cols} placeholder=" Add a comment..." value={props.value} onChange={props.textchange} />
     
-    <Button butname ={props.butname}/>
+    <Button 
+    butname ={props.butname} 
+    buttonclick={props.buttonclick}
+    />
     </form>
     </div>
 }

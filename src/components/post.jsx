@@ -10,7 +10,7 @@ import "../index.css"
 
 function Posts(props){
     let [valued, setValued] = useState(0);
-    const [toggle, setToggle ] = useState(true);
+    const [toggle, setToggle ] = useState(false);
 
     function add(){
         // setValued()
