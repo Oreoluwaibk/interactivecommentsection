@@ -1,7 +1,7 @@
 import React from "react";
 
-function Delete(){
-    return <div className="delete">
+function Delete(props){
+    return <div className="delete" onClick={()=>{props.delete(props.id)}}>
         Delete
     </div>
 }

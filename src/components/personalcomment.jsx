@@ -50,6 +50,7 @@ function PersonalComment (props){
             return [value]
         })
     }
+    
 
     return <div className="commenting">
         {body ? 
@@ -68,6 +69,7 @@ function PersonalComment (props){
             username={props.username}
             date={props.date}
             edit={edit}
+            delete={()=>{props.delete(props.id)}}
         />
         <Body 
             comments={setcomment}

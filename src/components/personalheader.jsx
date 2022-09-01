@@ -11,7 +11,7 @@ function Personalheader (props){
     <p className="you">you</p>
     <p>{props.date}</p>
     </div>
-    <Delete />
+    <Delete delete={()=>{props.delete(props.id)}}/>
     <Edit edit={props.edit}/>
 </div>
 }

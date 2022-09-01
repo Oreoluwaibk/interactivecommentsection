@@ -4,6 +4,7 @@ import Body from "./body";
 import CommentChange from "./commentcahnge";
 // import { set } from "lodash";
 import Comments from "./comments";
+import PersonalComment from "./personalcomment";
 import "../index.css"
 
 
@@ -11,6 +12,8 @@ import "../index.css"
 function Posts(props){
     let [valued, setValued] = useState(0);
     const [toggle, setToggle ] = useState(false);
+    const [commentChange, setCommentChange] = useState("");
+    const [newReply, setNewReply ] = useState([]); 
 
     function add(){
         // setValued()
@@ -29,9 +32,35 @@ function Posts(props){
     }
 
     function hide(){
-        console.log("clicked");
         setToggle(!toggle)
     }
+
+    function textchange(event){
+        const { value } = event.target;
+        setCommentChange(()=>{
+            return [value];
+        })
+    }
+
+    function clicked (e){
+        setNewReply((prev)=>{
+            return [...prev, commentChange]
+        })
+        setCommentChange("");
+        setToggle(false);
+        e.preventDefault();
+    }
+
+    function deleted (id){
+        setNewReply((prev)=>{
+            return prev.filter((reply, index)=>{
+                console.log(id, index);
+                return id !== index
+            })
+        })
+    }
+
+
     return <div className="post-return">
     <div className="posts">
         <div className={props.reply} > 
@@ -53,8 +82,25 @@ function Posts(props){
         />
         </div>
     </div>
-    
-    {toggle && <div className = "commentfor" ><Comments cols={45} butname={props.butname}/> </div>}
+    {newReply.map((reply, index)=>{
+        return <div><PersonalComment 
+            key={index}
+            id ={index}
+            comments={reply} 
+            date={`${new Date().getDay()} day ago`} 
+            username="julisomo"
+            avatar="/images/avatars/image-juliusomo.png"
+            delete={deleted}
+        /></div>
+    })}
+    {toggle && 
+    <div className = "commentfor" >
+    <Comments cols={45} 
+    butname={props.butname} 
+    buttonclick={clicked}
+    value ={commentChange}
+    textchange={textchange}
+    /> </div>}
     
     </div>
 }
